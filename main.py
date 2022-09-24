@@ -10,12 +10,14 @@ def load_secrets() -> dict:
     return yaml_dict
 
 def auth_twitterAPI(API_KEY :str, API_SECRET :str, ACCESS_TOKEN :str, ACCESS_TOKEN_SECRET :str) -> tweepy.API:
+    """OAuthを行いTweepyのAPIオブジェクトを返す"""
     auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     api = tweepy.API(auth)
     return api
 
 def mysql_connect(user :str, password: str, host :str, db_name :str, port :int = 3306) -> connections.Connection:
+    """MySQLのコネクションを得る"""
     conn = MySQLdb.connect(host=host, port=port, db=db_name, user=user, password=password)
     return conn
 
