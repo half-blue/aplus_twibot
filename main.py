@@ -7,6 +7,12 @@ from lastrun import save_lastrun_datetime, load_lastrun_datetime
 from inquire_newpost import inquire_new_posts
 from tweet import tweet_posts
 
+import os
+# cronで実行する場合、カレンとディレクトリを動的に設定する必要がある。
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
 def load_secrets() -> dict:
     """機密情報のyamlファイルを読み込み辞書データを返す"""
     with open("secret.yaml", "r") as f:
