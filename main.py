@@ -4,6 +4,8 @@ from MySQLdb import connections, cursors
 import tweepy
 
 from lastrun import save_lastrun_datetime, load_lastrun_datetime
+from inquire_newpost import inquire_new_posts
+from tweet import tweet_posts
 
 def load_secrets() -> dict:
     """機密情報のyamlファイルを読み込み辞書データを返す"""
@@ -42,9 +44,9 @@ if __name__ == "__main__":
     )
     cur :cursors.Cursor = conn.cursor()
 
-    
-    
-
+    posts = inquire_new_posts(cur, LAST_RUN_DT)
     save_lastrun_datetime()
+    tweet_posts(api, posts)
+    
     cur.close()
     conn.close()
