@@ -3,6 +3,8 @@ import MySQLdb
 from MySQLdb import connections, cursors
 import tweepy
 
+from lastrun import save_lastrun_datetime, load_lastrun_datetime
+
 def load_secrets() -> dict:
     """機密情報のyamlファイルを読み込み辞書データを返す"""
     with open("secret.yaml", "r") as f:
@@ -22,6 +24,8 @@ def mysql_connect(user :str, password: str, host :str, db_name :str, port :int =
     return conn
 
 if __name__ == "__main__":
+    LAST_RUN_DT = load_lastrun_datetime()
+
     SECRETS = load_secrets()
     api = auth_twitterAPI(
         SECRETS["Twitter"]["API_KEY"],
@@ -36,4 +40,11 @@ if __name__ == "__main__":
         SECRETS["MySQL"]["Database"],
         SECRETS["MySQL"]["Port"]
     )
-    pass
+    cur :cursors.Cursor = conn.cursor()
+
+    
+    
+
+    save_lastrun_datetime()
+    cur.close()
+    conn.close()
