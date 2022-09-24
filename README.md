@@ -37,3 +37,6 @@ cronで5分おきに自動実行されます。
  */5 * * * * root /usr/bin/python3 /home/django/aplus_twibot/main.py >> /var/log/twibot.log 2>> /var/log/twibot_error.log
  ```
  標準出力と標準エラー出力はご覧のようにリダイレクションされます。
+
+## 留意事項
+エラー処理を全くしていません。質問数が増えるとおかしくなると思います。その場合はこのBOTを止めてください。
