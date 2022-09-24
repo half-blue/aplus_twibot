@@ -9,7 +9,7 @@ def get_thread_url(thread_id : int) -> str:
 
 def trim_text(text :str) -> str:
     """質問本文を50字にトリムする"""
-    if len(text) > 100:
+    if len(text) > 50:
         return text[:49] + "…"
     else:
         return text
