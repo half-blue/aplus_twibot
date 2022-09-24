@@ -8,7 +8,7 @@ from inquire_newpost import inquire_new_posts
 from tweet import tweet_posts
 
 import os
-# cronで実行する場合、カレンとディレクトリを動的に設定する必要がある。
+# cronで実行する場合、カレントディレクトリを動的に設定する必要がある。
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
