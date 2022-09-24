@@ -22,16 +22,16 @@ git clone -b main --depth 1 https://github.com/half-blue/aplus_twibot.git
 ```sh
 python3 -c "import lastrun; lastrun.save_lastrun_datetime()"
 cat lastrun.yaml
- ```
- 
- ####　実行
+```
+
+#### 実行
  ```
  python3 main.py
  ```
  
- ## 自動実行の設定
- cronで5分おきに自動実行されます。
- 
+## 自動実行の設定
+cronで5分おきに自動実行されます。
+
  `/etc/cron.d/twitter_bot`に自動実行の設定が記述されています。
  ```
  */5 * * * * root /usr/bin/python3 /home/django/aplus_twibot/main.py >> /var/log/twibot.log 2>> /var/log/twibot_error.log
