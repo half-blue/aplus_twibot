@@ -13,6 +13,7 @@ git clone -b main --depth 1 https://github.com/half-blue/aplus_twibot.git
 ```
 #### 機密情報の設定
 `secret_origin.yaml`を編集し、`secret.yaml`として保存してください。
+**Twitter API v2**を利用しますので注意してください。
 
 #### 最終実行時刻の初期設定
 このBOTは`lastrun.yaml`に書き込まれた最終実行時刻(UTC)を参照し、最終実行時刻以降に投稿された質問をツイートします。
