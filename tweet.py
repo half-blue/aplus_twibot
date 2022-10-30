@@ -32,7 +32,7 @@ def trim_text(text: str) -> str:
 def tweet(client: tweepy.Client, trimed_text: str, url: str) -> None:
     """ツイートする"""
     msg = "A+つくばに新しい質問が投稿されました！\n----------\n"
-    msg += trimed_text + "\n"
+    msg += trimed_text + "\n "
     msg += url
     client.create_tweet(text=msg)
 
