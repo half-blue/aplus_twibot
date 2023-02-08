@@ -2,9 +2,6 @@ from typing import List, Tuple
 import MySQLdb
 from MySQLdb import cursors, connections
 
-from typing import Tuple
-
-
 def mysql_connect(user: str, password: str, host: str, db_name: str, port: int = 3306) -> connections.Connection:
     """MySQLのコネクションを得る"""
     conn = MySQLdb.connect(host=host, port=port,

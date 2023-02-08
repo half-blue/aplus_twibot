@@ -1,11 +1,15 @@
 # aplus_twibot
 A+つくばに新規投稿された質問をツイートするBOTシステム
 
+## WARNING
+Twitter API有料化に伴い工事中です．
+
+Twitter APIが失敗すると手動で投稿するようdiscordに通知されます．
+
 ## 使用法
-#### ライブラリの追加
+#### 環境構築
 ```sh
-pip3 install pyyaml
-pip3 install tweepy
+poetry install
 ```
 #### リポジトリのクローン
 ```sh
@@ -21,7 +25,8 @@ git clone -b main --depth 1 https://github.com/half-blue/aplus_twibot.git
 
 `lastrun.py`に最終実行時刻を書き込む関数があるため、それを利用し初期ファイルを生成します。
 ```sh
-python3 -c "import lastrun; lastrun.save_lastrun_datetime()"
+poetry shell
+python -c "import lastrun; lastrun.save_lastrun_datetime()"
 cat lastrun.yaml
 ```
 

@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     posts = inquire_new_posts(cur, LAST_RUN_DT)
     save_lastrun_datetime()
-    tweet_posts(client, posts)
+    tweet_posts(client, posts, SECRETS["Discord"]["WEBHOOK_URL"])
 
     cur.close()
     conn.close()
