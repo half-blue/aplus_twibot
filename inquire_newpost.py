@@ -14,6 +14,6 @@ def mysql_connect(user: str, password: str, host: str, db_name: str, port: int =
 
 def inquire_new_posts(cur: cursors.Cursor, after_datetime: str) -> Tuple[Tuple[str, int]]:
     """指定時刻以降のPostをDBに問い合わせ、本文とスレッドIDを返す"""
-    cur.execute("SELECT text, thread_id FROM board_post WHERE created_at > %s;", [
+    cur.execute("SELECT text, thread_id FROM board_post WHERE created_at > %s AND allow_tweet = TRUE;", [
                 after_datetime])
     return cur.fetchall()
